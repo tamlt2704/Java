@@ -70,6 +70,7 @@ v1.3:
 	# run App
 	java -cp target/spweb-1.0-SNAPSHOT.jar App
 
+
 v1.4:
 	# remove old pom.xml, otherwise maven create project will fail
 	rm -f pom.xml
@@ -87,3 +88,17 @@ v1.4:
 v1.5:
 	mvn test package -f spweb/pom.xml
 	java -cp spweb/target/spweb-1.0-SNAPSHOT.jar io.github.app.App
+
+# turn application to a spring boot
+v1.6:
+	command -v tmux && (\
+		SESSION=$USER &&\
+		tmux -2 new-session -d -s $SESSION &&\
+		tmux new-window -t $SESSION:1 -n 'v1.6' &&\
+		tmux split-window -h &&\
+		tmux select-pane -t 0 &&\
+		tmux send-keys "mvn spring-boot:run -f spweb/pom.xml" C-m &&\
+		tmux select-pane -t 1 &&\
+		tmux send-keys "watch curl -s localhost:8080/actuator/health" C-m &&\
+		tmux attach -t $SESSION\
+	) || (mvn spring-boot:run -f spweb/pom.xml)
