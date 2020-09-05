@@ -69,3 +69,9 @@ v1.3:
 
 	# run App
 	java -cp target/spweb-1.0-SNAPSHOT.jar App
+
+v1.4:
+	# remove old pom.xml, otherwise maven create project will fail
+	rm -f pom.xml
+	rm -fr spweb
+	mvn archetype:generate -DgroupId=io.github.app -DartifactId=spweb -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
