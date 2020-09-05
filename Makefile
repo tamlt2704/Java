@@ -33,3 +33,39 @@ v1.2:
 # Time: 0.005                                                                 |~                                                                                                   
 #                                                                             |~                                                                                                   
 # OK (1 test)
+
+
+# Using maven build
+# add pom.xml
+# delete .lib folder
+# move App.java, User.java to src/main/java
+# move UserTest.java to src/test/java
+# :r !tree .
+#
+# .
+# ├── Makefile
+# ├── pom.xml
+# ├── src
+# │   ├── main
+# │   │   └── java
+# │   │       ├── App.java
+# │   │       └── User.java
+# │   └── test
+# │       └── java
+# │           └── UserTest.java
+# └── target
+v1.3:
+	# clean target folder
+	mvn clean
+
+	# test
+	mvn test
+
+	# generate jar file
+	mvn package
+
+	# show jar content
+	# jar tf target/spweb-1.0-SNAPSHOT.jar
+
+	# run App
+	java -cp target/spweb-1.0-SNAPSHOT.jar App
