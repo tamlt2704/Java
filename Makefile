@@ -28,10 +28,10 @@ v1.2:
 	java -cp ".:lib/*:target" org.junit.runner.JUnitCore UserTest
 
 # expected output
-# JUnit version 4.8                                                           |~                                                                                                   
-# .                                                                           |~                                                                                                   
-# Time: 0.005                                                                 |~                                                                                                   
-#                                                                             |~                                                                                                   
+# JUnit version 4.8
+# .
+# Time: 0.005
+#
 # OK (1 test)
 
 
@@ -81,4 +81,9 @@ v1.4:
 	cp src/test/java/UserTest.java spweb/src/test/java/io/github/app/
 	# mvn test, package
 	mvn test package -f spweb/pom.xml
-	java -cp spweb/target/spweb-1.0-SNAPSHOT.jar App
+	java -cp spweb/target/spweb-1.0-SNAPSHOT.jar app
+
+# code refactor
+v1.5:
+	mvn test package -f spweb/pom.xml
+	java -cp spweb/target/spweb-1.0-SNAPSHOT.jar io.github.app.App

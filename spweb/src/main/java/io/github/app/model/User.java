@@ -1,3 +1,5 @@
+package io.github.app.model;
+
 public class User {
   long id;
   String name;
