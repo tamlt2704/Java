@@ -1,9 +1,20 @@
 package io.github.app.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+  @Id
+  @GeneratedValue
   long id;
   String name;
   String email;
+
+  // default constructor is important
+  public User() {
+  }
 
   public User(long id, String name, String email) {
     this.id = id;

@@ -102,3 +102,8 @@ v1.6:
 		tmux send-keys "watch curl -s localhost:8080/actuator/health" C-m &&\
 		tmux attach -t $SESSION\
 	) || (mvn spring-boot:run -f spweb/pom.xml)
+
+v1.7:
+	mvn spring-boot:run -f spweb/pom.xml
+	#curl -X POST localhost:8080/users -H 'Content-type:application/json' -d '{"name": "foo", "email": "foo@abc.com"}'
+	#curl -X POST localhost:8080/users -H 'Content-type:application/json' -d '{"name": "bar", "email": "bar@abc.com"}'
