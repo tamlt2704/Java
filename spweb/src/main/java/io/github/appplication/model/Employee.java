@@ -1,84 +1,89 @@
 package io.github.appplication.model;
 
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Objects;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
 
-    private @Id
-    @GeneratedValue
-    Long id;
-    private String firstName;
-    private String lastName;
-    private String description;
+	private @Id @GeneratedValue Long id;
 
-    private Employee() {}
+	@Column(name = "firstname")
+	private String firstName;
 
-    public Employee(String firstName, String lastName, String description) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.description = description;
-    }
+	@Column(name = "lastname")
+	private String lastName;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) &&
-                Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(description, employee.description);
-    }
+	@Column(name = "description")
+	private String description;
 
-    @Override
-    public int hashCode() {
+	private Employee() {
+	}
 
-        return Objects.hash(id, firstName, lastName, description);
-    }
+	public Employee(String firstName, String lastName, String description) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.description = description;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Employee employee = (Employee) o;
+		return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName)
+				&& Objects.equals(lastName, employee.lastName) && Objects.equals(description, employee.description);
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Override
+	public int hashCode() {
 
-    public String getFirstName() {
-        return firstName;
-    }
+		return Objects.hash(id, firstName, lastName, description);
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\''
+				+ ", description='" + description + '\'' + '}';
+	}
 }

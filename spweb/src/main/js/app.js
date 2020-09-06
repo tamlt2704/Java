@@ -22,7 +22,7 @@ function App() {
 	
 	return (
 		<>
-			<EmployeeList employees={employees}/>;
+			<EmployeeList employees={employees}/>
 		</>
 	) 
 }
