@@ -1,8 +1,7 @@
-package io.github.app.model;
+package io.github.appplication.model;
 
 import static org.junit.Assert.assertEquals;
 
-import io.github.app.model.User;
 import org.junit.Test;
 
 public class UserTest {

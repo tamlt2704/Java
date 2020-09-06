@@ -1,6 +1,6 @@
-package io.github.app.repository;
+package io.github.appplication.repository;
 
-import io.github.app.model.User;
+import io.github.appplication.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

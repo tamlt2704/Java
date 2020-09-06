@@ -1,4 +1,4 @@
-package io.github.app;
+package io.github.appplication;
 
 import static org.junit.Assert.assertTrue;
 

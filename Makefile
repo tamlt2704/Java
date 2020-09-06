@@ -107,3 +107,6 @@ v1.7:
 	mvn spring-boot:run -f spweb/pom.xml
 	#curl -X POST localhost:8080/users -H 'Content-type:application/json' -d '{"name": "foo", "email": "foo@abc.com"}'
 	#curl -X POST localhost:8080/users -H 'Content-type:application/json' -d '{"name": "bar", "email": "bar@abc.com"}'
+
+# spring boot load configuration under: package: .....application
+

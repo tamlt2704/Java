@@ -1,13 +1,12 @@
-package io.github.app.controller;
+package io.github.appplication.controller;
 
-import io.github.app.model.User;
-import io.github.app.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.github.appplication.model.User;
+import io.github.appplication.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+//@RestController(value = "/api/v1")
 public class UserController {
     private final UserRepository userRepository;
 
