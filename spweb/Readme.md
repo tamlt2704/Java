@@ -1,0 +1,1 @@
+1. spring boot automatically serve anything found in **src/main/resources/static**
