@@ -1,6 +1,6 @@
 'use strict';
 
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 const ReactDOM = require('react-dom');
 /*const client = require('./client');*/
 import props from 'prop-types';
@@ -14,27 +14,34 @@ function App() {
 	const [employees, setEmployees] = useState([]);
 	const [pageSize, setPageSize] = useState(2);
 	const [pageNumber, setPageNumber] = useState(0);
-	
+
 	const loadFromServer = (pageSize) => {
 		axios({
 			method: 'get',
-			url: `${root}/employees?page=${pageNumber}&size=${pageSize}`			
+			url: `${root}/employees?page=${pageNumber}&size=${pageSize}`
 		})
-		.then((response) => {
-			console.log(response);
-			setEmployees(response?.data?._embedded?.employees);
-		});
+			.then((response) => {
+				console.log(response);
+				setEmployees(response?.data?._embedded?.employees);
+			});
 	}
-	
+
 	useEffect(() => {
 		loadFromServer(pageSize);
-	}, [])
-	
+	}, [pageSize])
+
 	return (
 		<>
-			<EmployeeList employees={employees}/>
+			<EmployeeList employees={employees} />
+			<input
+				type="text"
+				value={pageSize}
+				onChange={(e) => {
+					setPageSize(e.target.value);
+				}}
+			/>
 		</>
-	) 
+	)
 }
 
 ReactDOM.render(
